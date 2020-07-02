@@ -31,9 +31,9 @@
       - Press Windows + R
       - type: `winver`
       - Check your windows version:
-      - [Windows Version](./windows-version.jpg)
+      - [Windows Version](https://github.com/Flusinerd/Uni-Docker-Manual/blob/master/windows-version.jpg?raw?true)
     - Open a PowerShell **as administrator**:
-      - [Powershell-Admin](./powershell-admin.jpg)
+      - [Powershell-Admin](https://github.com/Flusinerd/Uni-Docker-Manual/blob/master/powershell-admin.jpg?raw?true)
       - paste these commands: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
@@ -46,9 +46,9 @@
       - Press Windows + R
       - type: `winver`
       - Check your windows version:
-      - [Windows Version](./windows-version.jpg)
+      - [Windows Version](https://github.com/Flusinerd/Uni-Docker-Manual/blob/master/windows-version.jpg?raw?true)
     - Open a PowerShell **as administrator**:
-      - [Powershell-Admin](./powershell-admin.jpg)
+      - [Powershell-Admin](https://github.com/Flusinerd/Uni-Docker-Manual/blob/master/powershell-admin.jpg?raw?true)
       - paste these commands: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
@@ -61,7 +61,7 @@
     - [Download](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) the installer from  DockerHub
     - Run the Installer
     - Verify that after the installation the Docker whale is in the statusbar
-    - [Status-Bar](whale-in-menu-bar.png)
+    - [Status-Bar](https://d1q6f0aelx0por.cloudfront.net/icons/whale-in-menu-bar.png)
 - ### Linux:
     - Depends on distro: Mainly add repo and install with packagemanager (Docker Engine)
     - [CentOS](https://docs.docker.com/engine/install/centos/)
@@ -72,7 +72,7 @@
       - Add your user to ``docker`` group, so you dont have to run docker commands as sudo
 - ### Legacy Sytems (Windows 7,8, MacOS 64-Bit):
     - Check that you have Virtualization enabled in your BIOS-Settings (Windows only) 
-    - Download the latest version from [Docker Toolbox Download](https://github.com/docker/toolbox/releases)<br>[Download](./Docker-Toolbox-Download.jpg) (exe for Windows, pkg for MacOS)
+    - Download the latest version from [Docker Toolbox Download](https://github.com/docker/toolbox/releases)<br>[Download](https://github.com/Flusinerd/Uni-Docker-Manual/blob/master/Docker-Toolbox-Download.jpg?raw?true) (exe for Windows, pkg for MacOS)
     - If you have Virtual Box installed already, stop Virtualbox.
     - Start the Installer
     - Install Docker Toolbox. If you already have VirtualBox installed, make sure that Virtual Box is unticked in the list.
