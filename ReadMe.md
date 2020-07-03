@@ -1,6 +1,34 @@
-# Docker
+# Docker Manual
+<!-- TOC -->
 
-## Requirements / Installation:
+- [Docker Manual]()
+    - [System Requirements](#requirements)
+      - [Windows 10 Pro / Enterprise / Education](#windows-10-pro--enterprise--education)
+      - [Windows 10 Home](#windows-10-home)
+      - [MacOS 10.13 or later](#macos-1013-or-later)
+      - [Linux](#linux)
+      - [Legacy Sytems (Windows 7, 8, MacOS 64-Bit)](#legacy-sytems-windows-7-8-macos-64-bit)
+    - [Installation](#installation)
+      - [Windows 10 Pro / Enterprise / Education](#windows-10-pro--enterprise--education-1)
+      - [Windows 10 Home](#windows-10-home-1)
+      - [MacOS 10.13 or later](#macos-1013-or-later-1)
+      - [Linux](#linux-1)
+      - [Legacy Sytems (Windows 7, 8, MacOS 64-Bit)](#legacy-sytems-windows-7-8-macos-64-bit-1)
+    - [Docker Basics](#docker-basics)
+      - [docker run](#docker-run)
+      - [docker ps](#docker-ps)
+      - [docker stop](#docker-stop-container)
+      - [docker start](#docker-start-container)
+      - [docker restart](#docker-restart-container)
+      - [docker rename](#docker-rename-container-new-name)
+      - [docker exec](#docker-exec-container-command-args)
+      - [Ports in docker](#lets-have-a-look-at-ports-in-docker)
+      - [Cleaning up](#lets-clean-everything-up-again)
+    - [Docker Compose](#docker-compose)
+
+<!-- /TOC -->
+
+## Requirements:
 - ### Windows 10 Pro / Enterprise / Education:
     - Build 16299 or later
     - Hyper-V and Containers Windows feature
@@ -12,8 +40,9 @@
     - Installer only
 - ### Linux:
     - Depends on distro: Mainly add repo and install with packagemanager (Docker Engine)
-- ### Legacy Sytems (Windows 7,8, MacOS 64-Bit):
-    - [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+- ### Legacy Sytems (Windows 7, 8, MacOS 64-Bit):
+    - Virtualization turned on in the BIOS
+    - 64-Bit System
 ## Installation:
 - ### Windows 10 Pro / Enterprise / Education:
     - Check that you have **Build 19041** or higher:
@@ -59,14 +88,15 @@
     - [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
     - #### Aditional Step:
       - Add your user to ``docker`` group, so you dont have to run docker commands as sudo
-- ### Legacy Sytems (Windows 7,8, MacOS 64-Bit):
+- ### Legacy Sytems (Windows 7, 8, MacOS 64-Bit):
     - Check that you have Virtualization enabled in your BIOS-Settings (Windows only) 
     - Download the latest version from [Docker Toolbox Download](https://github.com/docker/toolbox/releases)
     ![Download](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/Docker-Toolbox-Download.jpg) (exe for Windows, pkg for MacOS)
     - If you have Virtual Box installed already, stop Virtualbox.
     - Start the Installer
     - Install Docker Toolbox. If you already have VirtualBox installed, make sure that Virtual Box is unticked in the list.
-## Basic Docker commands
+## Docker Basics
+- Lets go over some basic commands first and then have a look, how we can apply them.
 - ### ``docker run``
   - To verify your installation you can run a imange named ``hello-world``  
     To run a container you can use the following command in a terminal:  
