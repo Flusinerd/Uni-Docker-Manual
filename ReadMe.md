@@ -210,7 +210,9 @@
 
 - ### Besonderheiten:
   - Postgres:
-    - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden.
+    - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden. Alternativ kann auch das Image per DOCKERFILE erweitert werden.
+    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
   - MSSQL:
     - Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden [Github Issue](https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532).  
-    Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern ``sqlcmd`` nutzt um ein sql skript auszuführen.
+    Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern ``sqlcmd`` nutzt um ein sql skript auszuführen.  
+    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
