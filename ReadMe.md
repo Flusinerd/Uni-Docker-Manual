@@ -137,7 +137,7 @@
     - ``Hello from Docker!...``
       - This is the output of your container you just ran. It tells you that you installed docker successfully.
 - ### `docker ps`
-  - With ``docker ps`` you can lust your currently running containers:
+  - With ``docker ps`` you can list your currently running containers:
     - If you run ``docker ps`` now you should not see any containers listed, since the ``hello-world`` container quits after it has printed the message.
     - Lets run a ``nginx`` container and see how this works.
     - Run the command ``docker run -d nginx``
