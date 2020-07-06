@@ -25,6 +25,9 @@
       - [Ports in docker](#lets-have-a-look-at-ports-in-docker)
       - [Cleaning up](#lets-clean-everything-up-again)
     - [Docker-Compose](#docker-compose)
+    - [Besonderheiten](#besonderheiten)
+      - [Postgres](#Postgres)
+      - [MSSQL](#MSSQL)
 
 <!-- /TOC -->
 
@@ -209,10 +212,10 @@
     - Mit ``docker-compose ps`` lassen sich die von Docker-Compose erstellten Container auflisten.
 
 - ### Besonderheiten:
-  - Postgres:
+  - #### Postgres:
     - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden. Alternativ kann auch das Image per DOCKERFILE erweitert werden.
     [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
-  - MSSQL:
+  - #### MSSQL:
     - Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden [Github Issue](https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532).  
     Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern ``sqlcmd`` nutzt um ein sql skript auszuführen.  
     [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
