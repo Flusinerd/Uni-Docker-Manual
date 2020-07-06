@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ReadMe.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="docker-manual">Docker Manual</h1>
+<!-- TOC -->
+<ul>
+<li><a href="">Docker Manual</a>
+<ul>
+<li><a href="#requirements">System Requirements</a>
+<ul>
+<li><a href="#windows-10-pro--enterprise--education">Windows 10 Pro / Enterprise / Education</a></li>
+<li><a href="#windows-10-home">Windows 10 Home</a></li>
+<li><a href="#macos-1013-or-later">MacOS 10.13 or later</a></li>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#legacy-sytems-windows-7-8-macos-64-bit">Legacy Sytems (Windows 7, 8, MacOS 64-Bit)</a></li>
+</ul>
+</li>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#windows-10-pro--enterprise--education-1">Windows 10 Pro / Enterprise / Education</a></li>
+<li><a href="#windows-10-home-1">Windows 10 Home</a></li>
+<li><a href="#macos-1013-or-later-1">MacOS 10.13 or later</a></li>
+<li><a href="#linux-1">Linux</a></li>
+<li><a href="#legacy-sytems-windows-7-8-macos-64-bit-1">Legacy Sytems (Windows 7, 8, MacOS 64-Bit)</a></li>
+</ul>
+</li>
+<li><a href="#docker-basics">Docker Basics</a>
+<ul>
+<li><a href="#docker-run">docker run</a></li>
+<li><a href="#docker-ps">docker ps</a></li>
+<li><a href="#docker-stop-container">docker stop</a></li>
+<li><a href="#docker-start-container">docker start</a></li>
+<li><a href="#docker-restart-container">docker restart</a></li>
+<li><a href="#docker-rename-container-new-name">docker rename</a></li>
+<li><a href="#docker-exec-container-command-args">docker exec</a></li>
+<li><a href="#lets-have-a-look-at-ports-in-docker">Ports in docker</a></li>
+<li><a href="#lets-clean-everything-up-again">Cleaning up</a></li>
+</ul>
+</li>
+<li><a href="#docker-compose">Docker-Compose</a></li>
+<li><a href="#besonderheiten">Besonderheiten</a>
+<ul>
+<li><a href="#Postgres">Postgres</a></li>
+<li><a href="#MSSQL">MSSQL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="requirements">Requirements:</h2>
+<ul>
+<li>
+<h3 id="windows-10-pro--enterprise--education">Windows 10 Pro / Enterprise / Education:</h3>
+<ul>
+<li>Build 16299 or later</li>
+<li>Hyper-V and Containers Windows feature</li>
+</ul>
+</li>
+<li>
+<h3 id="windows-10-home">Windows 10 Home:</h3>
+<ul>
+<li>Version 2004 or later</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL2</a></li>
+<li><a href="https://docs.microsoft.com/windows/wsl/wsl2-kernel">Linux Kernel Update</a></li>
+</ul>
+</li>
+<li>
+<h3 id="macos-1013-or-later">MacOS 10.13 or later:</h3>
+<ul>
+<li>Installer only</li>
+</ul>
+</li>
+<li>
+<h3 id="linux">Linux:</h3>
+<ul>
+<li>Depends on distro: Mainly add repo and install with packagemanager (Docker Engine)</li>
+</ul>
+</li>
+<li>
+<h3 id="legacy-sytems-windows-7-8-macos-64-bit">Legacy Sytems (Windows 7, 8, MacOS 64-Bit):</h3>
+<ul>
+<li>Virtualization turned on in the BIOS</li>
+<li>64-Bit System</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation:</h2>
+<ul>
+<li>
+<h3 id="windows-10-pro--enterprise--education">Windows 10 Pro / Enterprise / Education:</h3>
+<ul>
+<li>Check that you have <strong>Build 19041</strong> or higher:
+<ul>
+<li>Drücke Windows + R</li>
+<li>Trage im Dialog: <code>winver</code> ein und klicke auf OK</li>
+<li>Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, <a href="#legacy-sytems-windows-7-8-macos-64-bit-1">Docker Toolbox installieren</a>:<br>
+<img src="https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/windows-version.jpg" alt="Windows Version"></li>
+</ul>
+</li>
+<li>Eine Powershell <strong>als Administrator</strong> ausführen:
+<img src="https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/powershell-admin.jpg" alt="Powershell-Admin">
+<ul>
+<li>Folgende Kommandos ausführen:
+<ul>
+<li><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></li>
+<li><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></li>
+</ul>
+</li>
+<li>restart your machine</li>
+</ul>
+</li>
+<li><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">Download</a> Docker Desktop von DockerHub</li>
+<li>Führen Sie die Installation aus.</li>
+<li>Falls gefragt wird, stellen Sie sicher, dass <code>Enable Hyper-V Windows Features</code> ausgewählt ist.</li>
+</ul>
+</li>
+<li>
+<h3 id="windows-10-home">Windows 10 Home:</h3>
+<ul>
+<li>Stellen Sie sicher, dass sie Windows <strong>Version 2004</strong> or neuer haben:
+<ul>
+<li>Drücken Sie Windows + R.</li>
+<li>Trage im Dialog: <code>winver</code> ein und klicke auf OK</li>
+<li>Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, <a href="#legacy-sytems-windows-7-8-macos-64-bit-1">Docker Toolbox installieren</a>:</li>
+</ul>
+</li>
+<li>Eine Powershell <strong>als Administrator</strong> ausführen:
+<img src="https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/powershell-admin.jpg" alt="Powershell-Admin">
+<ul>
+<li>Folgende Kommandos ausführen:
+<ul>
+<li><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></li>
+<li><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></li>
+</ul>
+</li>
+<li><strong>DEN PC NEUSTARTEN!!!</strong></li>
+</ul>
+</li>
+<li><a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">Downloaden</a> Sie das Linux Kernel Update und installieren Sie es.</li>
+<li><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">Downloaden</a> Sie Docker Desktop von DockerHub</li>
+<li>Führen Sie die Installation aus.</li>
+<li>Falls gefragt wird, stellen Sie sicher, dass <code>Enable Hyper-V Windows Features</code> ausgewählt ist.</li>
+</ul>
+</li>
+<li>
+<h3 id="macos-1013-or-later">MacOS 10.13 or later:</h3>
+<ul>
+<li><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac/">Downloaden</a> Sie den Installer von Docker Hub</li>
+<li>Führen Sie den Installer aus.</li>
+<li>Nach Der Installation sollte der Docker Wal in der Statusleiste vorhanden sein.<br>
+<img src="https://d1q6f0aelx0por.cloudfront.net/icons/whale-in-menu-bar.png" alt="Status-Bar"></li>
+</ul>
+</li>
+<li>
+<h3 id="linux">Linux:</h3>
+<ul>
+<li>Schauen Sie bitte in der Installationsanleitung für ihre Distro nach: Für gewöhnlich muss nur die Repo in den Paketmanager eingebunden werden und Docker dann damit installiert werden. (Docker Engine)</li>
+<li><a href="https://docs.docker.com/engine/install/centos/">CentOS</a></li>
+<li><a href="https://docs.docker.com/engine/install/debian/">Debian</a></li>
+<li><a href="https://docs.docker.com/engine/install/fedora/">Fedora</a></li>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu</a></li>
+<li>
+<h4 id="aditional-step">Aditional Step:</h4>
+<ul>
+<li>Fügen Sie ihren Nutzer die Gruppe <code>docker</code> hinzu. Dann müssen Sie die Docker Kommandos nicht als root ausführen.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="legacy-sytems-windows-7-8-macos-64-bit">Legacy Sytems (Windows 7, 8, MacOS 64-Bit):</h3>
+<ul>
+<li>Stellen Sie sicher, dass Virtualisierung in ihrem BIOS aktiviert ist. (Windows)</li>
+<li>Laden Sie sich die neueste Version von <a href="https://github.com/docker/toolbox/releases">Docker Toolbox</a> herunter.
+<img src="https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/Docker-Toolbox-Download.jpg" alt="Download"> (exe für Windows, pkg für MacOS)</li>
+<li>Falls Sie bereits VirtualBox installiert haben, stoppen Sie VirtualBox</li>
+<li>Führen Sie die Installation aus.</li>
+<li>Falls Sie VirtualBox bereits installiert haben, wählen Sie VirtualBox in der Liste der zu installierenden Komponenten ab.</li>
+</ul>
+</li>
+</ul>
+<h2 id="docker-basics">Docker Basics</h2>
+<ul>
+<li>Lassen Sie uns über eine paar Grundliegende Kommandos gehen.</li>
+<li>
+<h3 id="docker-run"><code>docker run</code></h3>
+<ul>
+<li>Um sicher zu gehen, dass die Installation erfolgreich war, können wir das Image <code>hello-world</code> ausführen.<br>
+Öffnen Sie ein Terminal und führen Sie folgendes Kommando aus:<br>
+<code>docker run &lt;image-name&gt;</code> hier also <code>docker run hello-world</code><br>
+Wenn alles erfolgreich installiert wurde, dann müssten Sie sowas im Terminal sehen:<pre class="hljs"><code><div>jan@DESKTOP-QNT1UI3:~$ docker run hello-world
+Unable to find image <span class="hljs-string">'hello-world:latest'</span> locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete
+Digest: sha256:d58e752213a51785838f9eed2b7a498ffa1cb3aa7f946dda11af39286c3db9a9
+Status: Downloaded newer image <span class="hljs-keyword">for</span> hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+1. The Docker client contacted the Docker daemon.
+2. The Docker daemon pulled the <span class="hljs-string">"hello-world"</span> image from the Docker Hub.
+    (amd64)
+3. The Docker daemon created a new container from that image <span class="hljs-built_in">which</span> runs the
+    executable that produces the output you are currently reading.
+4. The Docker daemon streamed that output to the Docker client, <span class="hljs-built_in">which</span> sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+$ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+https://hub.docker.com/
+
+For more examples and ideas, visit:
+https://docs.docker.com/get-started/
+</div></code></pre>
+<strong>Die Ausgabe sagt ihnen folgendes:</strong>
+<ul>
+<li><code>Unable to find image &lt;image_name&gt;:&lt;image_tag&gt; locally</code>
+<ul>
+<li>Das sagt ihnen, dass Sie das Image noch nicht heruntergeladen haben und Docker versucht eine Image mit dem Namen von <a href="https://hub.docker.com/">Docker Hub</a> herunterzuladen.</li>
+</ul>
+</li>
+<li><code>Hello from Docker!...</code>
+<ul>
+<li>Dies ist die Ausgabe des Containers und sagt ihnen, dass Docker erfolgreich installiert wurde.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-ps"><code>docker ps</code></h3>
+<ul>
+<li>Mit <code>docker ps</code> können Sie sich alle derzeit laufenden Container anzeigen lassen:
+<ul>
+<li>Wenn Sie jetzt <code>docker ps</code> ausführen, dann sehen Sie, dass kein Container läuft. Das hängt damit zusammen, dass der <code>hello-world</code> Container direkt nach der ausgabe beendet wird.</li>
+<li>Lassen sie uns einen <code>nginx</code> Container starten.</li>
+<li>Führen sie das Kommando  <code>docker run -d nginx</code>
+<ul>
+<li>Dies startet einen <code>nginx</code> Container im <code>detached</code> Modus</li>
+<li>Die <code>-d</code> Flag ist für den <code>detached</code> Modus verantwortlich. Das bedeudet, dass der Container nicht im derzeitigen Terminal läuft, sonder sich im Hintergrund startet.</li>
+<li>Sie können Docker Container auch mit der <code>--name &lt;some-name&gt;</code> Flag benennen. Zum Beispiel: <code>docker run --name nginx-container -d nginx</code></li>
+</ul>
+</li>
+<li>Wenn Sie nun <code>docker ps</code> erneut ausführen, dann sehen Sie, dass der <code>nginx</code> container läuft.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-stop-container"><code>docker stop &lt;container&gt;</code></h3>
+<ul>
+<li>Mit <code>docker stop &lt;container&gt;</code> können Sie einen laufenden Container löschen.</li>
+<li>Ersetzen Sie <code>&lt;container&gt;</code> entweder mit dem vollständigen Namen oder einem Teil der ID.</li>
+<li>Sie müssen nicht die komplette ID ausschreiben. Es reicht ein Teil, solange dieser eindeutig ist.
+<ul>
+<li>Wenn zum Beispiel die Container ID: <code>b76c9507a43e</code> ist, dann können Sie einfach <code>b76</code> schreiben, solange es keinen anderen Container gibt, dessen ID mit <code>b76</code> beginnt.</li>
+<li>You have to fully type the container names, but you can use the <code>tab</code> key for autocompletion</li>
+</ul>
+</li>
+<li>Wenn Sie nun <code>docker ps</code> erneut ausführen, dann sehen Sie, dass der <code>nginx</code> Container nichtmehr aufgelistet wird.</li>
+<li>Mit <code>docker ps -a</code> können Sie sich alle Container auflisten lassen. Dies beinhaltet auch gestoppte Container.</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-start-container"><code>docker start &lt;container&gt;</code></h3>
+<ul>
+<li>Dies ist das Gegenteil des Stop Kommandos und startet einen gestoppten Container wieder.</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-restart-container"><code>docker restart &lt;container&gt;</code></h3>
+<ul>
+<li>Mit diesem Kommando kann man einen Container neustarten.</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-rename-container-new-name"><code>docker rename &lt;container&gt; &lt;new-name&gt;</code></h3>
+<ul>
+<li>Mit diesem Kommando kann man einen Container umbenennen</li>
+</ul>
+</li>
+<li>
+<h3 id="docker-exec-container-command-args"><code>docker exec &lt;container&gt; &lt;command&gt; &lt;args&gt;</code></h3>
+<ul>
+<li>Dieses Kommando erlaubt es <code>&lt;command&gt;</code> mit den Argumenten <code>&lt;args&gt;</code> innerhalb des Containers auszuführen. Dies is zb. sinvoll, wenn man auf das Terminal eines Containers zugreifen will:
+<ul>
+<li><code>docker exec -it &lt;container&gt; bash</code>
+<ul>
+<li>Dies führt im Container <code>&lt;container&gt;</code> das Kommando <code>bash</code> im interactive Modus aus.</li>
+<li><code>-it</code> Diese Flagge sagt Docker, dass das Kommando im interactive Modus ausgeführt werden soll. Dies funktioniert auch mit dem <code>docker  run</code> Kommando.</li>
+<li>Mit <code>exit</code> können Sie das Terminal des Containers wieder beenden.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="ports-unter-docker">Ports unter Docker</h3>
+<ul>
+<li>In Docker sind Container von dem Host System isoliert. Sie laufen in ihrem eigenen Netzwerk. Aus diesem Grund kann man ohne weiteres nicht auf die Ports eines Containers zugreifen. Man kann aber Ports eines Containers auf die Ports des Host-System Mappen</li>
+<li>Docker Container <code>EXPOSE</code> Ports die dann auf die Ports des Host-Systems gemapped werden können</li>
+<li>Wir können mit der Flag <code>-p &lt;local_port&gt;:&lt;container_port&gt;</code> in Kombination mit dem <code>docker run</code> Kommando ausführen.</li>
+<li>Lassen Sie uns den Port <code>80</code> des <code>nginx</code> container auf den Port <code>81</code> unseres Systems mappen. Falls der <code>nginx</code> Container noch läuft, beenden Sie diesen.</li>
+<li>Nun starten wir ihn wieder, aber mappen die Ports wie oben beschrieben:
+<ul>
+<li><code>docker run -d -p 81:80 nginx</code>
+<ul>
+<li>Lassen Sie uns einmal über das Kommando gehen:
+<ul>
+<li>Wir starten einen neuen Container mit dem <code>nginx</code> Image</li>
+<li>Mit der <code>-d</code> Flage sagen wir, dass wir den Container im Hintergrund (detached) laufen lassen wollen.</li>
+<li>Wir wollen den Container Port <code>80</code> als Port <code>81</code> auf unserem Host-System erreichbar machen.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wenn wir nun <code>docker ps</code> erneut ausführen, sehen wir, dass der Port <code>81</code> des Host-Systems, auf Port <code>80</code> des Containers gemapped wurde.</li>
+<li>Öffnen Sie einen Browser und besuchen Sie <code>http://localhost:81</code>.</li>
+<li>Sie sollten die <code>Default nginx</code> Seite sehen.</li>
+</ul>
+</li>
+<li>
+<h3 id="alles-wieder-aufr%C3%A4umen">Alles wieder aufräumen</h3>
+<ul>
+<li>Lassen Sie sich zunächst alle laufenden Container anzeigen:</li>
+<li>Dies machen Sie mit <code>docker ps</code></li>
+<li>Nun stoppen Sie alle laufenden Container mit <code>docker stop</code>, wie oben beschrieben.</li>
+<li>Überprüfen Sie mit <code>docker ps</code>, dass keine Container mehr laufen. Die Liste sollte leer sein, da das Kommando ja nur laufende Container anzeigt.</li>
+<li>Nun lassen Sie sich die gestoppten Container mit <code>docker ps -a</code> anzeigen.</li>
+<li>Nun können Sie mit  <code>docker rm &lt;container&gt;</code> jeden Container löschen.
+<ul>
+<li>Dieses Kommando ist dem <code>docker stop</code> sehr änhlich. Der Unterschied zum <code>docker stop</code> Kommando ist jedoch der, dass <code>stop</code> die Container nicht löscht, sonder nur stoppt. Er kann also wieder erneut gestartet werden. <code>rm</code> (ReMove) hingegen löscht den Container (und damit gespeicherte Daten)</li>
+<li>@Todo: Possibilty to link commands? eg: Delete all containers at once</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="docker-compose">Docker-Compose</h2>
+<ul>
+<li>
+<h3 id="was-ist-docker-compose">Was ist Docker-Compose?</h3>
+<p>Docker-Compose ist ein tool, dass es erlaubt, mehrer Docker Container zu einer Applikation zu bündeln und diese dann zu starten. Die Konfiguration findet über die <code>docker-compose.yml</code> statt. Diese enthält Anweisungen, wie Docker-Compose die Container zur Verfügung stellen soll.<br>
+Darin enthalten sind Dinge wie:</p>
+<ul>
+<li>Welche Images</li>
+<li>In welcher Reihenfolge soll es gestartet werden</li>
+<li>Networking</li>
+<li>Volumes...</li>
+</ul>
+</li>
+<li>
+<h3 id="wichtige-kommandos">Wichtige Kommandos:</h3>
+<ul>
+<li><code>docker-compose up</code>
+<ul>
+<li>Mit <code>docker-compose up</code> kann eine multi-container Applikation gestartet werden. Das Tool guckt im derzeitigen Verzeichnis nach der <code>docker-compose.yml</code>.
+<ul>
+<li><code>-d</code> Flag: Startet die Container im <code>detached</code> / Hintergrund Modus</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>docker-compose down</code>
+<ul>
+<li>Mit <code>docker-compose down</code> kann eine multi-container Applikation gestoppt werden. Das Tool guckt wie bei <code>docker-compose up</code> im derzeitigen Verzeichnis nach einer <code>docker-compose.yml</code>
+<ul>
+<li><code>-v</code> Flag: Gibt an, dass die in der <code>docker-compose.yml</code> definierten Volumes mit gelöscht werden sollen.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>docker-compose ps</code>
+<ul>
+<li>Mit <code>docker-compose ps</code> lassen sich die von Docker-Compose erstellten Container auflisten.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="besonderheiten">Besonderheiten:</h3>
+<ul>
+<li>
+<h4 id="postgres">Postgres:</h4>
+<ul>
+<li>Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die <code>.sql</code> Dateien in <code>/docker-entrypoint-initdb.d/</code> gemountet werden. Alternativ kann auch das Image per DOCKERFILE erweitert werden.
+<a href="https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile">Beispiel für MSSQL</a></li>
+</ul>
+</li>
+<li>
+<h4 id="mssql">MSSQL:</h4>
+<ul>
+<li>Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden <a href="https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532">Github Issue</a>.<br>
+Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern <code>sqlcmd</code> nutzt um ein sql skript auszuführen.<br>
+<a href="https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile">Beispiel für MSSQL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
