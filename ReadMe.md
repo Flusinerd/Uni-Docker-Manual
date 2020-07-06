@@ -46,62 +46,61 @@
 ## Installation:
 - ### Windows 10 Pro / Enterprise / Education:
     - Check that you have **Build 19041** or higher:
-      - Press Windows + R
-      - type: `winver`
-      - Check your windows version:  
+      - Drücke Windows + R
+      - Trage im Dialog: `winver` ein und klicke auf OK
+      - Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, [Docker Toolbox installieren](#legacy-sytems-windows-7-8-macos-64-bit-1):  
       ![Windows Version](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/windows-version.jpg)
-    - Open a PowerShell **as administrator**:
+    - Eine Powershell **als Administrator** ausführen:
       ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/powershell-admin.jpg)
-      - paste these commands: 
+      - Folgende Kommandos ausführen: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
       - restart your machine
-    - [Download](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) Docker Desktop from DockerHub
-    - Run the Installer
-    - When prompted, ensure the Enable **Hyper-V Windows Features** option is selected on the Configuration page.
+    - [Download](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) Docker Desktop von DockerHub
+    - Führen Sie die Installation aus.
+    - Falls gefragt wird, stellen Sie sicher, dass ``Enable Hyper-V Windows Features`` ausgewählt ist.
 - ### Windows 10 Home:
-    - Check that you have **Version 2004** or higher:
-      - Press Windows + R
-      - type: `winver`
-      - Check your windows version:
-      ![Windows Version](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/windows-version.jpg)
-    - Open a PowerShell **as administrator**:
+    - Stellen Sie sicher, dass sie Windows **Version 2004** or neuer haben:
+      - Drücken Sie Windows + R.
+      - Trage im Dialog: `winver` ein und klicke auf OK
+      - Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, [Docker Toolbox installieren](#legacy-sytems-windows-7-8-macos-64-bit-1):  
+    - Eine Powershell **als Administrator** ausführen:
       ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/powershell-admin.jpg)
-      - paste these commands: 
+      - Folgende Kommandos ausführen: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
-      - restart your machine
-    - [Download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) the Linux Kernel Update and install it
-    - [Download](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) Docker Desktop from DockerHub
-    - Run the Installer
-    - When prompted, ensure the Enable **Hyper-V Windows Features** option is selected on the Configuration page.
+      - **DEN PC NEUSTARTEN!!!**
+    - [Downloaden](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) Sie das Linux Kernel Update und installieren Sie es.
+    - [Downloaden](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) Sie Docker Desktop von DockerHub
+    - Führen Sie die Installation aus.
+    - Falls gefragt wird, stellen Sie sicher, dass ``Enable Hyper-V Windows Features`` ausgewählt ist.
 - ### MacOS 10.13 or later:
-    - [Download](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) the installer from  DockerHub
-    - Run the Installer
-    - Verify that after the installation the Docker whale is in the statusbar
+    - [Downloaden](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) Sie den Installer von Docker Hub
+    - Führen Sie den Installer aus.
+    - Nach Der Installation sollte der Docker Wal in der Statusleiste vorhanden sein.  
     ![Status-Bar](https://d1q6f0aelx0por.cloudfront.net/icons/whale-in-menu-bar.png)
 - ### Linux:
-    - Depends on distro: Mainly add repo and install with packagemanager (Docker Engine)
+    - Schauen Sie bitte in der Installationsanleitung für ihre Distro nach: Für gewöhnlich muss nur die Repo in den Paketmanager eingebunden werden und Docker dann damit installiert werden. (Docker Engine)
     - [CentOS](https://docs.docker.com/engine/install/centos/)
     - [Debian](https://docs.docker.com/engine/install/debian/)
     - [Fedora](https://docs.docker.com/engine/install/fedora/)
     - [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
     - #### Aditional Step:
-      - Add your user to ``docker`` group, so you dont have to run docker commands as sudo
+      - Fügen Sie ihren Nutzer die Gruppe ``docker`` hinzu. Dann müssen Sie die Docker Kommandos nicht als root ausführen.
 - ### Legacy Sytems (Windows 7, 8, MacOS 64-Bit):
-    - Check that you have Virtualization enabled in your BIOS-Settings (Windows only) 
-    - Download the latest version from [Docker Toolbox Download](https://github.com/docker/toolbox/releases)
-    ![Download](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/Docker-Toolbox-Download.jpg) (exe for Windows, pkg for MacOS)
-    - If you have Virtual Box installed already, stop Virtualbox.
-    - Start the Installer
-    - Install Docker Toolbox. If you already have VirtualBox installed, make sure that Virtual Box is unticked in the list.
+    - Stellen Sie sicher, dass Virtualisierung in ihrem BIOS aktiviert ist. (Windows) 
+    - Laden Sie sich die neueste Version von [Docker Toolbox](https://github.com/docker/toolbox/releases) herunter.
+    ![Download](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/Docker-Toolbox-Download.jpg) (exe für Windows, pkg für MacOS)
+    - Falls Sie bereits VirtualBox installiert haben, stoppen Sie VirtualBox
+    - Führen Sie die Installation aus.
+    - Falls Sie VirtualBox bereits installiert haben, wählen Sie VirtualBox in der Liste der zu installierenden Komponenten ab.
 ## Docker Basics
-- Lets go over some basic commands first and then have a look, how we can apply them.
+- Lassen Sie uns über eine paar Grundliegende Kommandos gehen.
 - ### ``docker run``
-  - To verify your installation you can run a imange named ``hello-world``  
-    To run a container you can use the following command in a terminal:  
-    ``docker run <image-name>``  
-    If everything is installed correctly, you should see a ouput like this:
+  - Um sicher zu gehen, dass die Installation erfolgreich war, können wir das Image ``hello-world`` ausführen.  
+    Öffnen Sie ein Terminal und führen Sie folgendes Kommando aus:  
+    ``docker run <image-name>`` hier also ``docker run hello-world``  
+    Wenn alles erfolgreich installiert wurde, dann müssten Sie sowas im Terminal sehen:
     ```bash
     jan@DESKTOP-QNT1UI3:~$ docker run hello-world
     Unable to find image 'hello-world:latest' locally
@@ -131,40 +130,40 @@
     For more examples and ideas, visit:
     https://docs.docker.com/get-started/
     ```
-    **This message tells the the following:**  
+    **Die Ausgabe sagt ihnen folgendes:**  
     - ``Unable to find image <image_name>:<image_tag> locally``  
-      - This simply says, that you dont have that image installed locally and it will be pulled from [Docker Hub](https://hub.docker.com/)
+      - Das sagt ihnen, dass Sie das Image noch nicht heruntergeladen haben und Docker versucht eine Image mit dem Namen von [Docker Hub](https://hub.docker.com/) herunterzuladen.
     - ``Hello from Docker!...``
-      - This is the output of your container you just ran. It tells you that you installed docker successfully.
+      - Dies ist die Ausgabe des Containers und sagt ihnen, dass Docker erfolgreich installiert wurde.
 - ### `docker ps`
-  - With ``docker ps`` you can list your currently running containers:
-    - If you run ``docker ps`` now you should not see any containers listed, since the ``hello-world`` container quits after it has printed the message.
-    - Lets run a ``nginx`` container and see how this works.
-    - Run the command ``docker run -d nginx``
-      - This will run a ``nginx`` container in detached mode
-      - The ``-d`` flag is responsible for running in detached mode. This means, that your current terminal will not be bound to the terminal of the container and the container will run in the background.
-      - You can also give your docker container names with the ``--name <some-name>`` flag. For example: ``docker run --name nginx-container -d nginx``
-    - If you run ``docker ps`` again, you should see your nginx container running.
+  - Mit ``docker ps`` können Sie sich alle derzeit laufenden Container anzeigen lassen:
+    - Wenn Sie jetzt ``docker ps`` ausführen, dann sehen Sie, dass kein Container läuft. Das hängt damit zusammen, dass der ``hello-world`` Container direkt nach der ausgabe beendet wird.
+    - Lassen sie uns einen ``nginx`` Container starten.
+    - Führen sie das Kommando  ``docker run -d nginx``
+      - Dies startet einen ``nginx`` Container im ``detached`` Modus
+      - Die ``-d`` Flag ist für den ``detached`` Modus verantwortlich. Das bedeudet, dass der Container nicht im derzeitigen Terminal läuft, sonder sich im Hintergrund startet.
+      - Sie können Docker Container auch mit der ``--name <some-name>`` Flag benennen. Zum Beispiel: ``docker run --name nginx-container -d nginx``
+    - Wenn Sie nun ``docker ps`` erneut ausführen, dann sehen Sie, dass der ``nginx`` container läuft.
 - ### `docker stop <container>`
-  - With ``docker stop <container>`` you can stop a running container.
-  - Replace ``<container>`` with either the name or the ID of your container.
-  - You can partially type the name or the ID of the container as long as it is not ambiguous.
-    - For example if the ID of my container is: ``b76c9507a43e``, then I can just type ``b76`` as long as no other containers ID starts with ``b76``.
+  - Mit ``docker stop <container>`` können Sie einen laufenden Container löschen.
+  - Ersetzen Sie ``<container>`` entweder mit dem vollständigen Namen oder einem Teil der ID.
+  - Sie müssen nicht die komplette ID ausschreiben. Es reicht ein Teil, solange dieser eindeutig ist.
+    - Wenn zum Beispiel die Container ID: ``b76c9507a43e`` ist, dann können Sie einfach ``b76`` schreiben, solange es keinen anderen Container gibt, dessen ID mit ``b76`` beginnt.
     - You have to fully type the container names, but you can use the ``tab`` key for autocompletion
-  - If you run ``docker ps`` again, you should see, that your nginx container is gone.
-  - You can run ``docker ps -a`` to list all containers (including stopped ones).
+  - Wenn Sie nun ``docker ps`` erneut ausführen, dann sehen Sie, dass der ``nginx`` Container nichtmehr aufgelistet wird.
+  - Mit ``docker ps -a`` können Sie sich alle Container auflisten lassen. Dies beinhaltet auch gestoppte Container.
 - ### `docker start <container>`
-  - This is the oposite of the stop command and it allows you to start a stopped container again.
+  - Dies ist das Gegenteil des Stop Kommandos und startet einen gestoppten Container wieder.
 - ### ``docker restart <container>``
-  - This command allows you to restart a running or stopped container
+  - Mit diesem Kommando kann man einen Container neustarten.
 - ### ``docker rename <container> <new-name>`` 
-  - This command allows you to rename a container
+  - Mit diesem Kommando kann man einen Container umbenennen
 - ### ``docker exec <container> <command> <args>``
-  - This command runs ``<command>`` with the provided ``<args>`` inside the container. This is usefull for example if you want to open a terminal inside the container:
+  - Dieses Kommando erlaubt es ``<command>`` mit den Argumenten ``<args>`` innerhalb des Containers auszuführen. Dies is zb. sinvoll, wenn man auf das Terminal eines Containers zugreifen will:
     - ``docker exec -it <container> bash``
-      - This will run a bash shell in the provided container in interactive mode:
-      - ``-it`` tells docker to run the command in interactive mode. This can also be used together with ``docker  run``
-      - You can exit the containers shell again with ``exit``
+      - Dies führt im Container ``<container>`` das Kommando ``bash`` im interactive Modus aus.
+      - ``-it`` Diese Flagge sagt Docker, dass das Kommando im interactive Modus ausgeführt werden soll. Dies funktioniert auch mit dem ``docker  run`` Kommando.
+      - Mit ``exit`` können Sie das Terminal des Containers wieder beenden.
 - ### Lets have a look at ports in docker
   - In Docker the containers run isolated from your system inside their own network. This means, that you can't access your containers ports, like you would for example if you were running a nginx on your own machine.
   - Docker Containers ``EXPOSE`` ports that can then be mapped to any port on your local machine.
@@ -208,3 +207,10 @@
       - ``-v`` Flag: Gibt an, dass die in der ``docker-compose.yml`` definierten Volumes mit gelöscht werden sollen.
   - ``docker-compose ps``
     - Mit ``docker-compose ps`` lassen sich die von Docker Compose erstellten Container auflisten.
+
+- ### Besonderheiten:
+  - Postgres:
+    - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden.
+  - MSSQL:
+    - Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden [Github Issue](https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532).  
+    Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern ``sqlcmd`` nutzt um ein sql skript auszuführen.
