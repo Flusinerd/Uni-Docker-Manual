@@ -397,11 +397,16 @@ code {
 <li><a href="#docker-restart-container">docker restart</a></li>
 <li><a href="#docker-rename-container-new-name">docker rename</a></li>
 <li><a href="#docker-exec-container-command-args">docker exec</a></li>
-<li><a href="#lets-have-a-look-at-ports-in-docker">Ports in docker</a></li>
-<li><a href="#lets-clean-everything-up-again">Cleaning up</a></li>
+<li><a href="#ports-unter-docker">Ports unter Docker</a></li>
+<li><a href="#alles-wieder-aufr%C3%A4umen">Aufräumen</a></li>
 </ul>
 </li>
-<li><a href="#docker-compose">Docker-Compose</a></li>
+<li><a href="#docker-compose">Docker-Compose</a>
+<ul>
+<li><a href="#was-ist-docker-compose">Was ist Docker-Compose?</a></li>
+<li><a href="#wichtige-kommandos">Wichtige Kommandos</a></li>
+</ul>
+</li>
 <li><a href="#besonderheiten">Besonderheiten</a>
 <ul>
 <li><a href="#Postgres">Postgres</a></li>
@@ -750,8 +755,8 @@ Darin enthalten sind Dinge wie:</p>
 </li>
 </ul>
 </li>
-<li>
-<h3 id="besonderheiten">Besonderheiten:</h3>
+</ul>
+<h2 id="besonderheiten">Besonderheiten:</h2>
 <ul>
 <li>
 <h4 id="postgres">Postgres:</h4>
@@ -766,8 +771,6 @@ Darin enthalten sind Dinge wie:</p>
 <li>Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden <a href="https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532">Github Issue</a>.<br>
 Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern <code>sqlcmd</code> nutzt um ein sql skript auszuführen.<br>
 <a href="https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile">Beispiel für MSSQL</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

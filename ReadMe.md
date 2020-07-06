@@ -22,12 +22,14 @@
       - [docker restart](#docker-restart-container)
       - [docker rename](#docker-rename-container-new-name)
       - [docker exec](#docker-exec-container-command-args)
-      - [Ports in docker](#lets-have-a-look-at-ports-in-docker)
-      - [Cleaning up](#lets-clean-everything-up-again)
+      - [Ports unter Docker](#ports-unter-docker)
+      - [Aufräumen](#alles-wieder-aufräumen)
     - [Docker-Compose](#docker-compose)
+      - [Was ist Docker-Compose?](#was-ist-docker-compose)
+      - [Wichtige Kommandos](#wichtige-kommandos)
     - [Besonderheiten](#besonderheiten)
-      - [Postgres](#Postgres)
-      - [MSSQL](#MSSQL)
+      - [Postgres](#postgres)
+      - [MSSQL](#mssql)
 
 <!-- /TOC -->
 
@@ -211,7 +213,7 @@
   - ``docker-compose ps``
     - Mit ``docker-compose ps`` lassen sich die von Docker-Compose erstellten Container auflisten.
 
-- ### Besonderheiten:
+## Besonderheiten:
   - #### Postgres:
     - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden. Alternativ kann auch das Image per DOCKERFILE erweitert werden.
     [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile)
