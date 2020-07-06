@@ -191,4 +191,20 @@
 
 
 ## Docker Compose
-  @Todo: Add compose if we use compose
+- ### Was ist docker compose?
+  Docker Compose ist ein tool, dass es erlaubt, mehrer Docker Container zu einer Applikation zu bündeln und diese dann zu starten. Die Konfiguration findet über die ``docker-compose.yml`` statt. Diese enthält Anweisungen, wie Docker Compose die Container zur Verfügung stellen soll.  
+  Darin enthalten sind Dinge wie:  
+  - Welche Images
+  - In welcher Reihenfolge soll es gestartet werden
+  - Networking
+  - Volumes...
+
+- ### Wichtige Kommandos:
+  - ``docker-compose up``  
+    - Mit ``docker-compose up`` kann eine multi-container Applikation gestartet werden. Das Tool guckt im derzeitigen Verzeichnis nach der ``docker-compose.yml``.
+      - ``-d`` Flag: Startet die Container im ``detached`` / Hintergrund Modus
+  - ``docker-compose down``
+    - Mit ``docker-compose down`` kann eine multi-container Applikation gestoppt werden. Das Tool guckt wie bei ``docker-compose up`` im derzeitigen Verzeichnis nach einer ``docker-compose.yml``
+      - ``-v`` Flag: Gibt an, dass die in der ``docker-compose.yml`` definierten Volumes mit gelöscht werden sollen.
+  - ``docker-compose ps``
+    - Mit ``docker-compose ps`` lassen sich die von Docker Compose erstellten Container auflisten.
