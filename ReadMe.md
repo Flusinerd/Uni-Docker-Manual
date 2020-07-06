@@ -24,7 +24,7 @@
       - [docker exec](#docker-exec-container-command-args)
       - [Ports in docker](#lets-have-a-look-at-ports-in-docker)
       - [Cleaning up](#lets-clean-everything-up-again)
-    - [Docker Compose](#docker-compose)
+    - [Docker-Compose](#docker-compose)
 
 <!-- /TOC -->
 
@@ -164,34 +164,34 @@
       - Dies führt im Container ``<container>`` das Kommando ``bash`` im interactive Modus aus.
       - ``-it`` Diese Flagge sagt Docker, dass das Kommando im interactive Modus ausgeführt werden soll. Dies funktioniert auch mit dem ``docker  run`` Kommando.
       - Mit ``exit`` können Sie das Terminal des Containers wieder beenden.
-- ### Lets have a look at ports in docker
-  - In Docker the containers run isolated from your system inside their own network. This means, that you can't access your containers ports, like you would for example if you were running a nginx on your own machine.
-  - Docker Containers ``EXPOSE`` ports that can then be mapped to any port on your local machine.
-  - To do this we can use the ``-p <local_port>:<container_port>`` flag together with the ``docker run`` command.
-  - So lets stop our current nginx container, if it is running and lets start a new one and map the containers port ``80`` to our port ``81``
-  - To do this we run this command:
+- ### Ports unter Docker
+  - In Docker sind Container von dem Host System isoliert. Sie laufen in ihrem eigenen Netzwerk. Aus diesem Grund kann man ohne weiteres nicht auf die Ports eines Containers zugreifen. Man kann aber Ports eines Containers auf die Ports des Host-System Mappen
+  - Docker Container ``EXPOSE`` Ports die dann auf die Ports des Host-Systems gemapped werden können
+  - Wir können mit der Flag ``-p <local_port>:<container_port>`` in Kombination mit dem ``docker run`` Kommando ausführen.
+  - Lassen Sie uns den Port ``80`` des ``nginx`` container auf den Port ``81`` unseres Systems mappen. Falls der ``nginx`` Container noch läuft, beenden Sie diesen.
+  - Nun starten wir ihn wieder, aber mappen die Ports wie oben beschrieben:
     - ``docker run -d -p 81:80 nginx``
-      - Lets go over this command:
-        - We run a new container from the ``nginx`` image 
-        - We say, that it should run in the background with the ``-d`` flag
-        - We want the container port ``80`` to be available as port ``81`` on our machine
-  - If you run ``docker ps`` again you should see, that the nginx container is running and that our port ``81`` is mapped to the container port ``80``
-  - Now open a browser on your machine and go to ``http://localhost:81``.
-  - You should be greeted by the default nginx page.
-- ### Lets clean everything up again
-  - First let us stop all running containers:
-  - List the running containers with ``docker ps``
-  - Then stop each container with ``docker stop``
-  - Verify that no container is listed, when running ``docker ps``, that means we have no **running** container.
-  - Now lets list all containers ``docker ps -a``
-  - Now we can remove each container with the command ``docker rm <container>``
-    - It is similar to the ``docker stop`` command, but instead of stopping the container, and beeing able to start it later again, it removes the container.
+      - Lassen Sie uns einmal über das Kommando gehen:
+        - Wir starten einen neuen Container mit dem ``nginx`` Image 
+        - Mit der ``-d`` Flage sagen wir, dass wir den Container im Hintergrund (detached) laufen lassen wollen.
+        - Wir wollen den Container Port ``80`` als Port ``81`` auf unserem Host-System erreichbar machen.
+  - Wenn wir nun ``docker ps`` erneut ausführen, sehen wir, dass der Port ``81`` des Host-Systems, auf Port ``80`` des Containers gemapped wurde.
+  - Öffnen Sie einen Browser und besuchen Sie ``http://localhost:81``.
+  - Sie sollten die ``Default nginx`` Seite sehen.
+- ### Alles wieder aufräumen
+  - Lassen Sie sich zunächst alle laufenden Container anzeigen:
+  - Dies machen Sie mit ``docker ps``
+  - Nun stoppen Sie alle laufenden Container mit ``docker stop``, wie oben beschrieben.
+  - Überprüfen Sie mit ``docker ps``, dass keine Container mehr laufen. Die Liste sollte leer sein, da das Kommando ja nur laufende Container anzeigt.
+  - Nun lassen Sie sich die gestoppten Container mit ``docker ps -a`` anzeigen.
+  - Nun können Sie mit  ``docker rm <container>`` jeden Container löschen.
+    - Dieses Kommando ist dem ``docker stop`` sehr änhlich. Der Unterschied zum ``docker stop`` Kommando ist jedoch der, dass ``stop`` die Container nicht löscht, sonder nur stoppt. Er kann also wieder erneut gestartet werden. ``rm`` (ReMove) hingegen löscht den Container (und damit gespeicherte Daten)
     - @Todo: Possibilty to link commands? eg: Delete all containers at once
 
 
-## Docker Compose
-- ### Was ist docker compose?
-  Docker Compose ist ein tool, dass es erlaubt, mehrer Docker Container zu einer Applikation zu bündeln und diese dann zu starten. Die Konfiguration findet über die ``docker-compose.yml`` statt. Diese enthält Anweisungen, wie Docker Compose die Container zur Verfügung stellen soll.  
+## Docker-Compose
+- ### Was ist Docker-Compose?
+  Docker-Compose ist ein tool, dass es erlaubt, mehrer Docker Container zu einer Applikation zu bündeln und diese dann zu starten. Die Konfiguration findet über die ``docker-compose.yml`` statt. Diese enthält Anweisungen, wie Docker-Compose die Container zur Verfügung stellen soll.  
   Darin enthalten sind Dinge wie:  
   - Welche Images
   - In welcher Reihenfolge soll es gestartet werden
@@ -206,7 +206,7 @@
     - Mit ``docker-compose down`` kann eine multi-container Applikation gestoppt werden. Das Tool guckt wie bei ``docker-compose up`` im derzeitigen Verzeichnis nach einer ``docker-compose.yml``
       - ``-v`` Flag: Gibt an, dass die in der ``docker-compose.yml`` definierten Volumes mit gelöscht werden sollen.
   - ``docker-compose ps``
-    - Mit ``docker-compose ps`` lassen sich die von Docker Compose erstellten Container auflisten.
+    - Mit ``docker-compose ps`` lassen sich die von Docker-Compose erstellten Container auflisten.
 
 - ### Besonderheiten:
   - Postgres:
