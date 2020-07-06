@@ -52,9 +52,9 @@
       - Drücke Windows + R
       - Trage im Dialog: `winver` ein und klicke auf OK
       - Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, [Docker Toolbox installieren](#legacy-sytems-windows-7-8-macos-64-bit-1):  
-      ![Windows Version](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/windows-version.jpg)
+      ![Windows Version](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/windows-version.jpg)
     - Eine Powershell **als Administrator** ausführen:
-      ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/powershell-admin.jpg)
+      ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/powershell-admin.jpg)
       - Folgende Kommandos ausführen: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
@@ -68,7 +68,7 @@
       - Trage im Dialog: `winver` ein und klicke auf OK
       - Überprüfen Sie ihre Windows Version. Wenn nötig bitte updaten oder falls dies nicht möglich ist, [Docker Toolbox installieren](#legacy-sytems-windows-7-8-macos-64-bit-1):  
     - Eine Powershell **als Administrator** ausführen:
-      ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/powershell-admin.jpg)
+      ![Powershell-Admin](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/powershell-admin.jpg)
       - Folgende Kommandos ausführen: 
         - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
         - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
@@ -93,7 +93,7 @@
 - ### Legacy Sytems (Windows 7, 8, MacOS 64-Bit):
     - Stellen Sie sicher, dass Virtualisierung in ihrem BIOS aktiviert ist. (Windows) 
     - Laden Sie sich die neueste Version von [Docker Toolbox](https://github.com/docker/toolbox/releases) herunter.
-    ![Download](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/Docker-Toolbox-Download.jpg) (exe für Windows, pkg für MacOS)
+    ![Download](https://raw.githubusercontent.com/Flusinerd/Uni-Docker-Manual/master/images/Docker-Toolbox-Download.jpg) (exe für Windows, pkg für MacOS)
     - Falls Sie bereits VirtualBox installiert haben, stoppen Sie VirtualBox
     - Führen Sie die Installation aus.
     - Falls Sie VirtualBox bereits installiert haben, wählen Sie VirtualBox in der Liste der zu installierenden Komponenten ab.
@@ -214,8 +214,8 @@
 - ### Besonderheiten:
   - #### Postgres:
     - Das Postgres Image erlaubt es SQL Skripte beim erstellen auszuführen.  Dazu müssen dann die ``.sql`` Dateien in ``/docker-entrypoint-initdb.d/`` gemountet werden. Alternativ kann auch das Image per DOCKERFILE erweitert werden.
-    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
+    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile)
   - #### MSSQL:
     - Das gleiche geht auch beim MSSQL Image aber dort ist es leider mit ein wenig Arbeit verbunden [Github Issue](https://github.com/Microsoft/mssql-docker/issues/2#issuecomment-547699532).  
     Hierbei wird über das Command Attribut in der docker-compose ein shell skript ausgeführt, das intern ``sqlcmd`` nutzt um ein sql skript auszuführen.  
-    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/samples/containers/replication/db1/Dockerfile)
+    [Beispiel für MSSQL](https://github.com/microsoft/sql-server-samples/blob/master/images/samples/containers/replication/db1/Dockerfile)
