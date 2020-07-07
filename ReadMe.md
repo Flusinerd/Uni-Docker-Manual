@@ -81,7 +81,9 @@
     - Falls gefragt wird, stellen Sie sicher, dass ``Enable Hyper-V Windows Features`` ausgewählt ist.
 - ### MacOS 10.13 or later:
     - [Downloaden](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) Sie den Installer von Docker Hub
-    - Führen Sie den Installer aus.
+    - Führen Sie den Installer aus. (Ziehen Sie Docker in ihren Applikation Ordner)
+    - Starten Sie Docker über das Launchpad oder suchen Sie mit Spotlight nach ``Docker``und starten Sie dieses.
+    - Bestätigen Sie den Dialog und geben Sie ihr Passwort ein. Dies schließt dann die Installation von Docker ab.
     - Nach Der Installation sollte der Docker Wal in der Statusleiste vorhanden sein.  
     ![Status-Bar](https://d1q6f0aelx0por.cloudfront.net/icons/whale-in-menu-bar.png)
 - ### Linux:
