@@ -21,7 +21,7 @@
 
 ## Startet von Postgres und PGAdmin
 Nun, da wir alles Installiert haben können wir die Container starten.
-Dazu öffnen Sie eine Powershell (muss nicht als admin) und gehen in den Ordner in dem die bereitgestellte ``docker-compose.yml`` und ``servers.json`` liegt.
+Dazu öffnen Sie eine Powershell (muss nicht als admin gestartet werden)  und gehen in den Ordner in dem die bereitgestellte ``docker-compose.yml`` und ``servers.json`` liegt.
 
 Sie können mit ``cd <Verzeichnis>`` in ein Verzeichnis gehen.  
 Sie können mit ``ls`` sich den Inhalt des derzeitigen Ordner anzeigen.  
