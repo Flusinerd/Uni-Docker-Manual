@@ -23,7 +23,9 @@
 Nun, da wir alles Installiert haben können wir die Container starten.
 Dazu öffnen Sie eine Powershell (muss nicht als admin) und gehen in den Ordner in dem die bereitgestellte ``docker-compose.yml`` und ``servers.json`` liegt.
 
-Sie können mit ``cd <Verzeichnis>`` in ein Verzeichnis gehen.
+Sie können mit ``cd <Verzeichnis>`` in ein Verzeichnis gehen.  
+Sie können mit ``ls`` sich den Inhalt des derzeitigen Ordner anzeigen.  
+
 Alternativ können Sie auch einfach mit dem Explorer in den Ordner gehen und oben in der Adressleiste ``powershell`` eintragen und mit Enter bestätigen. Dann öffnet sich eine Powershell im aktuellen Ordner.
 
 Nun da wir eine Powershell offen haben geben Sie ``docker-compose up -d`` ein und die Container sollten starten. Sobald die Container gestartet sind, könne Sie die Powershell schließen.
